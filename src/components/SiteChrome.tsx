@@ -23,8 +23,11 @@ export function DemoRibbon() {
           Demo
         </span>
         <p className="min-w-0 flex-1 leading-snug">
-          Beispielseite eines Testportals.{' '}
-          <span className="text-white/70">So sieht der Kaufberater im eigenen Layout aus.</span>
+          Beispielseite eines Testportals.
+          <span className="hidden text-white/70 sm:inline">
+            {' '}
+            So sieht der Kaufberater im eigenen Layout aus.
+          </span>
         </p>
         <Link
           to="/fuer-publisher"

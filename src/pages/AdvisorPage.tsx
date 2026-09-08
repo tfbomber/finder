@@ -83,7 +83,7 @@ export function AdvisorPage() {
   const pct = Math.round(((step + (chosen.length ? 1 : 0)) / cat.questions.length) * 100)
 
   return (
-    <Container className="pt-6 pb-16">
+    <Container className={`pt-6 ${multi ? 'pb-32 sm:pb-16' : 'pb-16'}`}>
       {/* Fortschritt */}
       <div className="mb-8">
         <div className="mb-2 flex items-baseline justify-between text-[13px]">
@@ -174,12 +174,27 @@ export function AdvisorPage() {
           )}
 
           {multi && (
-            <Button variant="cta" size="lg" disabled={chosen.length === 0} onClick={() => goNext(answers)}>
+            <Button
+              variant="cta"
+              size="lg"
+              disabled={chosen.length === 0}
+              onClick={() => goNext(answers)}
+              className="hidden sm:inline-flex"
+            >
               {step === cat.questions.length - 1 ? 'Empfehlung ansehen' : 'Weiter'} <Icon name="arrow" />
             </Button>
           )}
         </div>
       </div>
+
+      {/* Auf dem Handy liegt der Weiter-Button sonst unter der Faltung. */}
+      {multi && (
+        <div className="fixed inset-x-0 bottom-0 z-20 border-t border-line bg-paper/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-sm sm:hidden">
+          <Button variant="cta" size="lg" full disabled={chosen.length === 0} onClick={() => goNext(answers)}>
+            {step === cat.questions.length - 1 ? 'Empfehlung ansehen' : 'Weiter'} <Icon name="arrow" />
+          </Button>
+        </div>
+      )}
 
       <p className="mt-12 border-t border-line pt-5 text-[12.5px] leading-relaxed text-ink-mute">
         Keine Anmeldung, keine E-Mail-Adresse. Deine Angaben bleiben im Browser und werden ausschließlich mit

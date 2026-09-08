@@ -22,10 +22,12 @@ function SpecRow({ product }: { product: Evaluation['product'] }) {
     a.material === 'netz' ? 'Netzrücken' : a.material === 'kunstleder' ? 'Kunstleder' : 'Polster',
   ]
   return (
-    <ul className="flex flex-wrap gap-x-3 gap-y-1.5 text-[12.5px] text-ink-mute">
-      {items.map((t, i) => (
-        <li key={t} className="flex items-center gap-3">
-          {i > 0 && <span className="text-line-strong">|</span>}
+    <ul className="flex flex-wrap gap-1.5">
+      {items.map((t) => (
+        <li
+          key={t}
+          className="rounded-md bg-paper-warm px-2 py-1 text-[12.5px] leading-none text-ink-mute"
+        >
           {t}
         </li>
       ))}
