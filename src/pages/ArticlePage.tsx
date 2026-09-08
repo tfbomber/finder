@@ -2,7 +2,12 @@ import { buerostuhl } from '../categories/buerostuhl'
 import { AdvisorTeaser } from '../components/AdvisorTeaser'
 import { ChairFigure } from '../components/ChairFigure'
 import { Badge, Container, Icon } from '../components/ui'
-import { eur, grade } from '../lib/format'
+import { eur, grade, num, word, Word } from '../lib/format'
+
+const all = buerostuhl.products
+const count = all.length
+const minPrice = Math.min(...all.map((p) => p.priceEur))
+const maxPrice = Math.max(...all.map((p) => p.priceEur))
 
 const topList = buerostuhl.products
   .filter((p) => p.listRank !== undefined)
@@ -19,9 +24,9 @@ export function ArticlePage() {
           Die besten Bürostühle fürs Homeoffice 2026
         </h1>
         <p className="mt-4 font-serif text-[19px] leading-relaxed text-ink-soft sm:text-[21px]">
-          Zwölf Modelle zwischen 199 und 1.149 Euro, jedes davon vier Wochen im echten Arbeitsalltag. Fünf
-          schaffen es in unsere Empfehlungsliste – welches davon für dich das richtige ist, hängt allerdings
-          von dir ab.
+          {Word(count)} Modelle zwischen {num(minPrice)} und {num(maxPrice)} Euro, jedes davon vier Wochen im
+          echten Arbeitsalltag. {Word(topList.length)} schaffen es in unsere Empfehlungsliste – welches davon
+          für dich das richtige ist, hängt allerdings von dir ab.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-line py-3 text-[13px] text-ink-mute">
@@ -39,10 +44,10 @@ export function ArticlePage() {
             Beides sagt wenig darüber aus, ob man nach einem Arbeitstag noch aufrecht steht.
           </p>
           <p>
-            Wir haben deshalb zwölf Stühle beschafft, sie in unserer Redaktion und bei acht Testpersonen
+            Wir haben deshalb {word(count)} Stühle beschafft, sie in unserer Redaktion und bei acht Testpersonen
             zwischen 1,58 m und 1,96 m eingesetzt und nach denselben Kriterien bewertet: Verstellbarkeit,
             Rückenunterstützung, Sitzklima, Verarbeitung und Langzeitkomfort. Das Ergebnis ist keine
-            Rangliste mit einem einzigen Gewinner. Es ist eine Liste mit fünf Empfehlungen – und der
+            Rangliste mit einem einzigen Gewinner. Es ist eine Liste mit {word(topList.length)} Empfehlungen – und der
             wichtigsten Erkenntnis aus vier Wochen Test:
           </p>
           <p className="border-l-3 border-brand py-1 pl-5 font-serif text-[21px] leading-snug font-semibold text-brand">
@@ -57,8 +62,8 @@ export function ArticlePage() {
           Unsere Empfehlungen auf einen Blick
         </h2>
         <p className="mt-3 text-[15px] text-ink-soft">
-          Fünf von zwölf Modellen haben es in die Liste geschafft. Die Reihenfolge ist unser
-          Gesamturteil – nicht automatisch die Reihenfolge für deinen Rücken.
+          {Word(topList.length)} von {word(count)} Modellen haben es in die Liste geschafft. Die Reihenfolge
+          ist unser Gesamturteil – nicht automatisch die Reihenfolge für deinen Rücken.
         </p>
 
         <ol className="mt-6 space-y-3">
@@ -123,8 +128,8 @@ export function ArticlePage() {
             <span className="mr-1.5 inline-block align-[-2px] text-ink-mute">
               <Icon name="info" />
             </span>
-            <strong className="font-semibold text-ink">Hinweis zu dieser Demo:</strong> {buerostuhl.products.length}{' '}
-            Produkte, Marken und Messwerte auf dieser Seite sind erfunden. Sie zeigen, wie ein Kaufberater mit
+            <strong className="font-semibold text-ink">Hinweis zu dieser Demo:</strong> Alle {count} Produkte,
+            Marken und Messwerte auf dieser Seite sind erfunden. Sie zeigen, wie ein Kaufberater mit
             den echten Testdaten einer Redaktion arbeiten würde.
           </p>
         </div>

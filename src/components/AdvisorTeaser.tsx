@@ -1,6 +1,9 @@
 import { buerostuhl } from '../categories/buerostuhl'
 import { Link, navigate } from '../lib/router'
 import { Button, Icon } from './ui'
+import { word } from '../lib/format'
+
+const count = buerostuhl.products.length
 
 const POINTS = [
   'Körpergröße, Gewicht und Sitzdauer statt Bestsellerliste',
@@ -15,7 +18,8 @@ export function AdvisorTeaser({ variant = 'full' }: { variant?: 'full' | 'inline
         <div>
           <p className="font-serif text-[18px] font-bold text-brand">Unsicher, welches Modell?</p>
           <p className="mt-0.5 text-[14px] text-ink-soft">
-            Sechs Fragen zu deinem Körper und deinem Arbeitstag – wir sagen dir, welcher der zwölf Stühle passt.
+            Sechs Fragen zu deinem Körper und deinem Arbeitstag – wir sagen dir, welcher der {word(count)}{' '}
+            Stühle passt.
           </p>
         </div>
         <Button variant="cta" onClick={() => navigate('/berater')} className="shrink-0">
@@ -63,7 +67,7 @@ export function AdvisorTeaser({ variant = 'full' }: { variant?: 'full' | 'inline
         </div>
 
         <p className="mt-5 text-[12.5px] text-ink-mute">
-          60 Sekunden · keine Anmeldung · zwölf von uns getestete Modelle
+          60 Sekunden · keine Anmeldung · {word(count)} von uns getestete Modelle
         </p>
       </div>
     </section>
