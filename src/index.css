@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  /* ---- White-label slots: overwritten at runtime from publisher config ---- */
+  --publisher-brand: #1c3a34;
+  --publisher-brand-soft: #eef3f1;
+  --publisher-brand-line: #cddbd6;
+  --publisher-cta: #b4530e;
+  --publisher-cta-hover: #96440b;
+
+  --ink: #16201d;
+  --ink-soft: #4d5c58;
+  --ink-mute: #7c8a86;
+  --paper: #ffffff;
+  --paper-warm: #f8f7f4;
+  --line: #e5e3dd;
+  --line-strong: #d3d0c8;
+  --good: #15694f;
+  --good-soft: #e9f4ef;
+  --warn: #8a5a00;
+  --warn-soft: #fdf5e4;
+  --bad: #9a3527;
+  --bad-soft: #fbeeec;
+}
+
+@theme inline {
+  --color-brand: var(--publisher-brand);
+  --color-brand-soft: var(--publisher-brand-soft);
+  --color-brand-line: var(--publisher-brand-line);
+  --color-cta: var(--publisher-cta);
+  --color-cta-hover: var(--publisher-cta-hover);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-paper: var(--paper);
+  --color-paper-warm: var(--paper-warm);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 600;
+}
+
+button { font-family: inherit; }
+
+::selection { background: var(--publisher-brand); color: #fff; }
+
+:where(a, button, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--publisher-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.anim-in { animation: fadeUp .38s cubic-bezier(.2,.7,.3,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-in { animation: none; }
+  html { scroll-behavior: auto; }
+}
