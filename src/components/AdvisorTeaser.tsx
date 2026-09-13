@@ -30,7 +30,7 @@ export function AdvisorTeaser({ variant = 'full' }: { variant?: 'full' | 'inline
   }
 
   return (
-    <section className="my-10 overflow-hidden rounded-2xl border border-brand-line bg-brand-soft">
+    <section id="kaufberater" className="my-10 overflow-hidden rounded-2xl border border-brand-line bg-brand-soft">
       <div className="p-6 sm:p-8">
         <p className="mb-3 text-[11px] font-semibold tracking-[0.14em] text-brand/70 uppercase">
           Persönliche Empfehlung

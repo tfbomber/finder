@@ -37,6 +37,14 @@ export function ArticlePage() {
           <span>Lesezeit 11 Minuten</span>
         </div>
 
+        <a
+          href="#kaufberater"
+          className="mt-5 flex items-center gap-2.5 rounded-lg bg-cta/10 px-4 py-3 text-[14.5px] font-semibold text-cta hover:bg-cta/15"
+        >
+          <Icon name="arrow" className="h-4 w-4 rotate-90" />
+          Direkt zum Kaufberater: Welcher Stuhl passt zu dir? (60 Sek.)
+        </a>
+
         <div className="mt-8 space-y-5 text-[17px] leading-[1.75] text-ink">
           <p>
             Ein guter Bürostuhl ist die einzige Anschaffung im Homeoffice, die man acht Stunden am Tag am

@@ -91,7 +91,7 @@ export function PrimaryCard({ e }: { e: Evaluation }) {
           </div>
         )}
 
-        <blockquote className="mt-6 border-l-3 border-line-strong pl-4 font-serif text-[16.5px] leading-relaxed text-ink-soft italic">
+        <blockquote className="mt-6 border-l-3 border-line-strong pl-4 text-[16px] leading-relaxed text-ink-soft">
           {p.editorNote}
           <footer className="mt-2 font-sans text-[12.5px] not-italic">
             Aus unserem Testbericht · Redaktion {publisher.name}

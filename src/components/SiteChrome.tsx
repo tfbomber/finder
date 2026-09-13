@@ -67,9 +67,9 @@ export function SiteHeader() {
         </nav>
         <Link
           to="/berater"
-          className="shrink-0 rounded-lg bg-brand-soft px-3 py-2 text-[13px] font-semibold text-brand hover:bg-brand hover:text-white"
+          className="shrink-0 rounded-lg bg-cta px-3.5 py-2 text-[13px] font-semibold text-white hover:bg-cta-hover"
         >
-          Kaufberater
+          Kaufberater starten
         </Link>
       </WideContainer>
     </header>
